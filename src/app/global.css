@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #090a0c; /* Matches 'dark' from tailwind.config.js */
+  --foreground: #F3F4F6; /* Matches 'accent' for light text */
+  --secondary: #10B981; /* Matches 'secondary' for green highlights */
+  --primary: #0a0a0a; /* Matches updated 'primary' */
+  --simple: #ffffff; /* Matches 'simple' for white highlights */
+  --font-family: 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff; /* Light mode fallback */
+    --foreground: #0a0a0a;
+  }
+}
+
+body {
+  @apply bg-[var(--background)] text-[var(--foreground)] font-sans;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  @apply bg-secondary text-simple;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .mask-fade {
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+}
+
+/* Component Styles */
+@layer components {
+  .card {
+    @apply flex flex-col items-center justify-start text-left overflow-hidden rounded-lg bg-primary/90 shadow-custom p-6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card p {
+    @apply text-accent text-sm lg:text-base line-clamp-3;
+  }
+.card h2{
+  @apply text-left py-2 text-secondary text-2xl
+}
+  .icon-wrapper {
+    @apply flex items-center justify-center w-12 h-12;
+  }
+
+  .tall {
+    @apply min-h-[300px] row-span-2;
+  }
+
+  .wide {
+    @apply col-span-2;
+  }
+
+  .big {
+    @apply col-span-2 min-h-[300px] row-span-2;
+  }
+
+  .grid {
+    @apply grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3;
+    display: grid;
+  }
+
+  /* Hover effect for large screens */
+  @media (min-width: 1024px) {
+    .card.hover-expand {
+      @apply min-h-[200px]; /* Base height for cards */
+    }
+
+    .card.hover-expand:hover {
+      @apply shadow-2xl;
+    }
+
+    .card.hover-expand:hover p {
+      @apply line-clamp-none;
+    }
+  }
+
+  /* Disable hover on mobile */
+  @media (max-width: 1023px) {
+    .card p {
+      @apply line-clamp-none;
+    }
+  }
+}
+
+/* Responsive Design */
+@layer utilities {
+  @media (max-width: 1024px) {
+    .grid {
+      @apply grid-cols-2 gap-3;
+    }
+
+    .card {
+      @apply text-sm p-4;
+    }
+
+    .tall, .big {
+      @apply min-h-[280px];
+    }
+
+    .wide, .big {
+      @apply col-span-1;
+    }
+
+    h1 {
+      @apply text-3xl;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      @apply grid-cols-1 gap-3;
+    }
+
+    .card {
+      @apply text-sm p-3 h-max w-full;
+    }
+
+    .tall, .big, .wide {
+      @apply h-auto min-h-0 row-span-1 col-span-1;
+    }
+
+    .icon-wrapper {
+      @apply w-10 h-10;
+    }
+
+    h1 {
+      @apply text-2xl;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid {
+      @apply grid-cols-1 gap-2;
+    }
+
+    .card {
+      @apply text-xs p-2;
+    }
+
+    .tall, .big, .wide {
+      @apply h-auto min-h-0 row-span-1 col-span-1;
+    }
+
+    .icon-wrapper {
+      @apply w-8 h-8;
+    }
+
+    h1 {
+      @apply text-xl;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .grid {
+      @apply grid-cols-1 gap-2;
+    }
+
+    .card {
+      @apply text-xs p-2;
+    }
+
+    .icon-wrapper {
+      @apply w-6 h-6;
+    }
+
+    h1 {
+      @apply text-lg;
+    }
+  }
+}
+

@@ -1,103 +1,341 @@
-import Image from "next/image";
+
+// 'use client';
+// import { motion } from 'framer-motion';
+// import Image from 'next/image';
+// import { Button } from './components/button';
+// import { Navbar } from './components/navbar';
+// import { Footer } from './components/footer';
+// import {Canvas} from '@react-three/fiber';
+// import {Stars} from '@react-three/drei';
+
+// export default function Home() {
+//   const projects = [
+//     {
+//       title: 'Hostel Management System',
+//       description: 'A full-stack app for managing hostel bookings, built with Django and PostgreSQL.',
+//       href: '/projects#hostel',
+//     },
+//     {
+//       title: 'FoodBridge',
+//       description: 'A platform connecting food donors with charities, built with React and Firebase.',
+//       href: '/projects#foodbridge',
+//     },
+//   ];
+
+//   return (
+//     <div className="bg-dark text-accent">
+//       <Navbar />
+//       <Canvas 
+//       className="fixed inset-0 z-0"
+//       camera={{position: [0, 0, 1]}}
+//       >
+//         <Stars
+//         radius={100}
+//         depth={50}
+//         count={5000}
+//         factor={4}
+//         saturation={0}
+//         fade
+//         speed={1}
+//         />
+//       </Canvas>
+//       {/* Hero Section */}
+//       <motion.section
+//         className="min-h-[80vh] flex items-center justify-center py-16 relative z-20"
+//         initial={{ opacity: 0, y: 50 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.8 }}
+//       >
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center gap-10">
+//           {/* Text Section */}
+//           <motion.div
+//             className="flex-1 text-center md:text-left max-w-lg"
+//             initial={{ x: -50, opacity: 0 }}
+//             whileInView={{ x: 0, opacity: 1 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.6 }}
+//           >
+//             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-simple">
+//               Hi, I&apos;m <span className="text-secondary">Mathew</span> Phillip
+//             </h1>
+//             <p className="text-base sm:text-lg md:text-xl mb-6 text-accent">
+//               A self-taught programmer driven by a passion for creating impactful tech solutions.
+//             </p>
+//             <Button text="View My Work" href="/projects" variant="primary" />
+//           </motion.div>
+
+//           {/* Image Section */}
+//           <motion.div
+//             className="flex-1 max-w-xs sm:max-w-sm"
+//             initial={{ scale: 0.8, opacity: 0 }}
+//             whileInView={{ scale: 1, opacity: 1 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.6 }}
+//           >
+//             <Image
+//               src="/beast.jpg"
+//               alt="Mathew Phillip"
+//               width={300}
+//               height={300}
+//               className="rounded-full mx-auto object-cover"
+//               priority
+//             />
+//           </motion.div>
+//         </div>
+//       </motion.section>
+
+//       {/* About Section */}
+//       <motion.section
+//         className="py-16 bg-accent text-primary"
+//         initial={{ opacity: 0, y: 30 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.8 }}
+//       >
+//         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+//           <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-primary">
+//             About Me
+//           </h2>
+//           <p className="text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+//             My journey into programming began in high school, sparked by curiosity and a love for technology.
+//             I taught myself HTML and CSS using Notepad in the school ICT lab, driven by passion despite limited resources.
+//             Over time, I expanded into JavaScript, PHP, Python, React, and Django—learning through practice and determination.
+//             From building basic pages to crafting full-stack apps, I thrive on solving problems and creating real-world solutions.
+//           </p>
+//           <Button text="More About Me" href="/about" variant="outline" className="mt-8" />
+//         </div>
+//       </motion.section>
+
+//       {/* Projects Section */}
+//       <motion.section
+//         className="py-16 bg-dark text-accent"
+//         initial={{ opacity: 0, y: 30 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.8 }}
+//       >
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+//           <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-simple">
+//             Featured Projects
+//           </h2>
+//           <div className="grid gap-6">
+//             {projects.map((project, index) => (
+//               <motion.div
+//                 key={project.title}
+//                 className="card"
+//                 initial={{ opacity: 0, y: 20 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 viewport={{ once: true }}
+//                 transition={{ duration: 0.6, delay: index * 0.2 }}
+//               >
+//                 <h3 className="text-xl font-semibold text-simple">{project.title}</h3>
+//                 <p className="mt-2 text-accent">{project.description}</p>
+//                 <Button
+//                   text="Learn More"
+//                   href={project.href}
+//                   variant="ghost"
+//                   className="mt-4"
+//                 />
+//               </motion.div>
+//             ))}
+//           </div>
+//           <Button text="View All Projects" href="/projects" variant="primary" className="mt-10" />
+//         </div>
+//       </motion.section>
+
+//       {/* CTA Section */}
+//       <motion.section
+//         className="py-16 bg-primary text-accent text-center"
+//         initial={{ opacity: 0, y: 40 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.8 }}
+//       >
+//         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-simple">
+//             Let&apos;s Build Something Amazing
+//           </h2>
+//           <p className="text-base sm:text-lg mb-8">
+//             Ready to collaborate on impactful projects? Reach out to discuss ideas or opportunities.
+//           </p>
+//           <Button text="Get in Touch" href="/contact" variant="primary" />
+//         </div>
+//       </motion.section>
+
+//       <Footer />
+//     </div>
+//   );
+// }
+
+'use client';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { Button } from './components/button';
+import { Navbar } from './components/navbar';
+import { Footer } from './components/footer';
+import { Canvas, useFrame } from '@react-three/fiber';
+import {StarsWithColor} from './stars/stars'
+
+// Custom Stars component with color and enhanced animation
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const projects = [
+    {
+      title: 'Hostel Management System',
+      description: 'A full-stack app for managing hostel bookings, built with Django and PostgreSQL.',
+      href: '/projects#hostel',
+    },
+    {
+      title: 'FoodBridge',
+      description: 'A platform connecting food donors with charities, built with React and Firebase.',
+      href: '/projects#foodbridge',
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <div className="relative min-h-screen bg-dark text-accent">
+      <Navbar />
+      {/* Canvas as full-page background */}
+      <div className="absolute inset-0 z-0">
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+      >
+        <StarsWithColor
+          radius={100}
+          depth={50}
+          count={10000}
+          factor={4}
+          saturation={0}
+          fade speed={2} 
+          color="#66ccff"
+          twinkle={true} 
+        />
+      </Canvas>
+      </div>
+      {/* Hero Section */}
+      <motion.section
+        className="min-h-[80vh] flex items-center justify-center py-16 relative z-10"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center gap-10">
+          {/* Text Section */}
+          <motion.div
+            className="flex-1 text-center md:text-left max-w-lg"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-simple leading-tight">
+                <span className="text-secondary">Mathew</span> Phillip <span className="text-secondary">Matovu</span>
+              </h1>
+            <p className="text-base sm:text-lg md:text-xl mb-6 text-accent">
+                Driven by a passion for creating impactful tech solutions.
+            </p>
+            {/* <Button text="View My Work" href="/projects" variant="primary" /> */}
+          </motion.div>
+
+          {/* Image Section */}
+          <motion.div
+            className="flex-1 max-w-xs sm:max-w-sm"
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/beast.jpg"
+              alt="Mathew Phillip"
+              width={300}
+              height={300}
+              className="rounded-full mx-auto object-cover"
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </motion.section>
+
+      {/* About Section */}
+      <motion.section
+        className="py-16 bg-accent text-primary relative z-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-primary">
+          About Me
+        </h2>
+        <p className="text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+          I&apos;m a results-driven full-stack developer with hands-on experience in building fast, scalable, and user-friendly websites and web applications.I bring not just clean code, but creative problem-solving and a passion for innovation. Whether it&apos;s launching a new product or optimizing an existing system, I&apos;m ready to help you build something exceptional.
+        </p>
+        <Button text="More About Me" href="/about" variant="outline" className="mt-8" />
+      </div>
+
+      </motion.section>
+
+      {/* Projects Section */}
+      {/* <motion.section
+        className="py-16 bg-dark text-accent relative z-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-simple">
+            Featured Projects
+          </h2>
+          <div className="grid gap-6">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                className="card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <h3 className="text-xl font-semibold text-simple">{project.title}</h3>
+                <p className="mt-2 text-accent">{project.description}</p>
+                <Button
+                  text="Learn More"
+                  href={project.href}
+                  variant="ghost"
+                  className="mt-4"
+                />
+              </motion.div>
+            ))}
+          </div>
+          <Button text="View All Projects" href="/projects" variant="primary" className="mt-10" />
+        </div>
+      </motion.section> */}
+
+      {/* CTA Section */}
+      <motion.section
+        className="py-16 bg-primary text-accent text-center relative z-10"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-simple">
+            Let&apos;s Build Something Amazing
+          </h2>
+          <p className="text-base sm:text-lg mb-8">
+            Ready to collaborate on impactful projects? Reach out to discuss ideas or opportunities.
+          </p>
+          <Button text="Get in Touch" href="/contacts" variant="primary" />
+        </div>
+      </motion.section>
+      <Footer />
     </div>
   );
 }
