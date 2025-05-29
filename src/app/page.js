@@ -218,7 +218,7 @@ export default function Home() {
             <p className="text-base sm:text-lg md:text-xl mb-6 text-accent">
                 Driven by  passion for creating impactful tech solutions.
             </p>
-            <Button text="View My Work" href="/projects" variant="primary" />
+            {/* <Button text="View My Work" href="/projects" variant="primary" /> */}
           </motion.div>
           {/* Image Section */}
           <motion.div
