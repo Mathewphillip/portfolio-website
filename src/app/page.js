@@ -160,7 +160,7 @@ export default function Home() {
           <p className="text-base sm:text-lg mb-8">
             Ready to collaborate on impactful projects? Reach out to discuss ideas or opportunities.
           </p>
-          <Button text="Get in Touch" href="/contact" variant="primary" />
+          <Button text="Get in Touch" href="/contacts" variant="primary" />
         </div>
       </motion.section>
       <Footer />
