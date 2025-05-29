@@ -195,26 +195,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-dark text-accent">
-      <Navbar />
-      {/* Canvas as full-page background */}
-      <div className="absolute inset-0 z-0">
-      <Canvas
-        camera={{ position: [0, 0, 1] }}
-      >
-        <StarsWithColor
-          radius={100}
-          depth={50}
-          count={10000}
-          factor={4}
-          saturation={0}
-          fade speed={2} 
-          color="#66ccff"
-          twinkle={true} 
-        />
-      </Canvas>
-      </div>
-      {/* Hero Section */}
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <motion.section
         className="min-h-[80vh] flex items-center justify-center py-16 relative z-10"
         initial={{ opacity: 0, y: 50 }}
@@ -231,15 +212,14 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-simple leading-tight font-balgeri">
-                <span className="text-secondary ">Mathew</span> Phillip <span className="text-secondary">Matovu</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-balgeri mb-6 text-simple leading-tight">
+                <span className="text-secondary">Mathew</span> Phillip <span className="text-secondary">Matovu</span>
               </h1>
             <p className="text-base sm:text-lg md:text-xl mb-6 text-accent">
-                Driven by a passion for creating impactful tech solutions.
+                Driven by  passion for creating impactful tech solutions.
             </p>
-            {/* <Button text="View My Work" href="/projects" variant="primary" /> */}
+            <Button text="View My Work" href="/projects" variant="primary" />
           </motion.div>
-
           {/* Image Section */}
           <motion.div
             className="flex-1 max-w-xs sm:max-w-sm"
@@ -259,7 +239,6 @@ export default function Home() {
           </motion.div>
         </div>
       </motion.section>
-
       {/* About Section */}
       <motion.section
         className="py-16 bg-accent text-primary relative z-10"
