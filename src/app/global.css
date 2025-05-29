@@ -18,6 +18,13 @@
   }
 }
 
+@font-face{
+  font-family:'balgeri';
+  src:url('./Balgeri-Font/balgeri.otf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
 body {
   @apply bg-[var(--background)] text-[var(--foreground)] font-sans;
   transition: background-color 0.3s ease, color 0.3s ease;
