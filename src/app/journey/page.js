@@ -12,25 +12,25 @@ return(
     <div className="relative h-screen bg-dark text-accent">
           <Navbar/>
           <motion.section
-        className="bg-dark text-white pt-16 sm:py-12 h-screen relative"
+        className="bg-dark text-white pt-16 sm:py-12 h-100vh relative flex flex-col"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 bg-white rounded-2xl shadow-xl space-y-6"
-          >
             <motion.h1
-            className="text-2xl sm:text-3xl font-bold text-secondary py-4"
+            className="text-2xl sm:text-3xl font-bold text-secondary py-4 text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
             How I Got There
           </motion.h1>
+           <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 bg-white rounded-2xl shadow-xl space-y-6 "
+          >
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
