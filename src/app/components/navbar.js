@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -75,13 +75,13 @@ export function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden focus:outline-none text-accent hover:text-secondary"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isOpen}
-            aria-controls="primary-navigation"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden focus:outline-none text-accent hover:text-secondary"
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isOpen}
+                aria-controls="primary-navigation"
+              >
+                {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
           </button>
         </div>
       </div>

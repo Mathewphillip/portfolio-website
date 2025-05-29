@@ -6,11 +6,11 @@ import { motion } from 'framer-motion';
 
 export function Footer() {
   const socialLinks = [
-    {
-      href: 'https://github.com/Mathewphillip',
-      icon: <FaGithub />,
-      label: 'GitHub',
-    },
+    // {
+    //   href: 'https://github.com/Mathewphillip',
+    //   icon: <FaGithub />,
+    //   label: 'GitHub',
+    // },
     {
       href: 'https://www.linkedin.com/in/matovu-mathew-phillip-72004b363/',
       icon: <FaLinkedin />,
